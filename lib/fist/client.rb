@@ -2,6 +2,8 @@ require 'socket'
 
 module Fist
   class FistClient
+    attr_writer :conn
+
     def initialize(host, port)
       @host = host
       @port = port
