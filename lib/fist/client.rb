@@ -29,7 +29,6 @@ module Fist
 
     def close
       @conn.write("EXIT\r\n")
-      @conn.close
     end
   end
 end

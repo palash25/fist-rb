@@ -2,7 +2,7 @@ require "minitest/autorun"
 
 require "fist/client"
 
-class FistTest < Minitest::Test
+class IntegrationTest < Minitest::Test
   def setup
     @client = Fist::FistClient.new("localhost", "5575")
     @client.connect
@@ -24,7 +24,7 @@ class FistTest < Minitest::Test
     assert_equal @client.delete("text"), 13
   end
 
-  def teardown
-    @client.close
+  def test_close
+    assert_equal @client.close, 6
   end
 end
