@@ -20,7 +20,7 @@ end
 class FistTest < Minitest::Test
   def setup
     @client = Fist::FistClient.new("localhost", "5575")
-    @client.conn = MockTCPServer.new
+    @client.conn = StubTCPServer.new
   end
 
   def test_version
