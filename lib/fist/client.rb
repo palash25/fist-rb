@@ -18,15 +18,15 @@ module Fist
     end
 
     def index(doc, text)
-      @conn.write("INDEX " << doc << " " << text << "\r\n")
+      @conn.write("INDEX #{doc} #{text}\r\n")
     end
 
     def search text
-      @conn.write("SEARCH " << text << "\r\n")
+      @conn.write("SEARCH #{text}\r\n")
     end
 
     def delete text
-      @conn.write("DELETE " << text << "\r\n")
+      @conn.write("DELETE #{text}\r\n")
     end
 
     def close
