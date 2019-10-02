@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.5.3
+before_script:
+  - git clone --depth 1 https://github.com/f-prime/fist.git
+  - cd fist
+  - docker build . -t fist:latest
+script:
+  - docker run -d --init --rm -p 5575:5575 -v /var/local/lib/fist fist
+  - cd ..
+  - rake test
