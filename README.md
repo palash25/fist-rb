@@ -1,8 +1,6 @@
-# Fist
+# fist
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fist`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+fist is a simple TCP client gem for the [FIST](https://github.com/f-prime/fist) server. I wrote this to learn Ruby.
 
 ## Installation
 
@@ -22,7 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+FIST is a great alternative to heavier text search servers like Elasticsearch when you
+want to build toy projects and quick prototypes with basic search capabilities and zero
+hassle of infrastructure management that a beast like ES brings to your project. The purpose
+of writing this library was to bring this convinience into the Ruby world and also to learn Ruby.
+
+```ruby
+@client = Fist::FistClient.new("localhost", "5575")
+@client.connect # connect to the server
+
+@client.version # return the version of the FIST server
+
+# index a document `doc` containing the string `some text`
+@client.index("doc", "some text")
+
+# search and return all the documents containing the string `text`
+@client.search("text")
+
+# delete all the documents containing the string `text`
+@client.delete("text")
+
+@client.close # close the connection
+```
 
 ## Development
 
@@ -32,7 +51,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fist.
+PRs and Issues are welcome.
 
 ## License
 
